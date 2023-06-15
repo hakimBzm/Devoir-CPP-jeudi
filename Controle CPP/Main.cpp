@@ -7,14 +7,15 @@ private:
     double poids;
 
 public:
-    Boxeur(const std::string& nomBoxeur, double poidsBoxeur)
-        : nom(nomBoxeur), poids(poidsBoxeur) {
-    }
+    // Constructeur
+    Boxeur(const std::string& nom, double poids) : nom(nom), poids(poids) {}
 
-    std::string getNom() const {
+    // Méthode pour obtenir le nom (lecture seule)
+    const std::string& getNom() const {
         return nom;
     }
 
+    // Méthodes pour obtenir et définir le poids
     double getPoids() const {
         return poids;
     }
@@ -24,16 +25,13 @@ public:
     }
 };
 
-class Combat {
-private:
-    std::string niveau;
+int main() {
+    // Exemple d'utilisation de la classe Boxeur
+    Boxeur boxeur_1("Box_1", 75.0);
+    std::cout << "Boxeur 1 : Nom = " << boxeur_1.getNom() << ", Poids = " << boxeur_1.getPoids() << "kg" << std::endl;
 
-public:
-    Combat(const std::string& niveauCombat)
-        : niveau(niveauCombat) {
-    }
+    boxeur_1.setPoids(80.0);
+    std::cout << "Nouveau poids de Boxeur 1 : " << boxeur_1.getPoids() << "kg" << std::endl;
 
-    std::string getNiveau() const {
-        return niveau;
-    }
-};
+    return 0;
+}
